@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<link rel="stylesheet" href="style.css">
+    <style>
+    *{
+        margin: 0; padding: 0; box-sizing: border-box; 
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        padding: 50px auto; 
+        display: flex; 
+        flex-direction: column;
+        text-align: center;
+    }
+    .emp_table{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+        place-items: center;
+        margin-top: 100px;
+        text-align: center;
+        gap: 50px;
+        box-direction: 1px solid;
+       
+    }
+    .userdetails{
+        position: relative;
+        width: 350px; padding: 20px; box-shadow: 0 0 10px gray; text-align: center;
+    }
+   .userdetails h2{
+        color: rgb(5, 70, 67);
+        padding-bottom: 10px;
+       
+   }
+   .userdetails p{ 
+        text-align: left;
+        padding-left: 20px;
+        margin-top: 10px;   
+        font-size: 17px;  
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   }
+   span{
+    position: absolute; top: 0;
+    right: 0;
+    padding: 10px 20px 0 0; 
+    font-weight: bolder;
+    color: rgb(20, 133, 135);  
+   }
+   form{  
+    display: flex;
+    flex-direction: column; 
+    padding: 20px;
+    margin: auto;
+    border-radius: 8px;
+    width: 500px;
+    background: linear-gradient(45deg, rgb(209, 124, 139), rgb(135, 197, 222));
+   }
+   label{
+    display: inline-block;
+    width: 80px;
+    color: rgb(17, 16, 16);
+   }
+   input{    
+    padding: 10px;
+   display: block;
+   width: 100%;
+    border: none;    
+   }
+   input:focus{
+    outline: none;
+   }
+   button{
+    display: block;
+    padding: 10px 50px; outline: none; background: teal; color: white;
+    margin: auto;
+    border: none;
+   }
+   li a:is{
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+  a{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+a:is(:link, :active, :visited).active {
+  color: #faf4f4;
+  background-color: rgb(48, 45, 45);
+}
+</style>
+<body>
+    
+ <br> <br>
+
+<h2 style="padding: 20px 0 0 0; font-family: sans-serif; ">SIgn In</h1>
+    <div class="header">
+      <div class="logo">
+        <img src="images/one.png" alt="">
+      </div>
+      <div class="navbar">
+        <a href="index.html"> Registration</a>
+        <a href="hold.html">hold</a>
+        <a href="accept.html">Accepted </a>      
+        <a href="rejected.html">deleted</a>
+        <a href="login.html">Login</a>
+      </div>
+    </div>
+<div><button style="padding: 10px;"><a href="localstorage.html " style="color: white; text-decoration: none; font-weight: bolder;">Sign In</a></button> </div>
+<br> <br>
+    <form  >
+        <label for="">NAME</label>
+        <input type="text" name="name" placeholder="name"> <br> <br>
+        <label for="">EMAIL</label>
+        <input type="email" name="email" placeholder="email"> <br> <br>           
+        <button>Click</button>
+    </form>        
+</body> <br> <br>
+
+<script>
+
+    let alldata = JSON.parse(localStorage.getItem('data')) || []  
+    console.log(alldata); 
+  
+  
+    let form = document.querySelector('form')
+    form.addEventListener('submit', (e)=>{
+        
+        let name = e.target.name.value;
+    let email = e.target.email.value;
+    let alldata = JSON.parse(localStorage.getItem('data')) || [];
+
+    let status = alldata.some(v => v.name === name && v.email === email);
+
+    if (status) {
+        alert('Login successful');
+     
+    } else {
+        alert('Details not found');
+    }
+});          
+  
+</script>
+<script src="index.js"></script>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite</title>
+</head>
+<style>
+    
+    table{
+    background: rgb(253, 228, 0);
+    border-collapse: collapse;
+
+    }
+    th{
+        color: rgb(18, 18, 17)
+    }
+ 
+  li a:is{
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+  a{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+a:is(:link, :active, :visited).active {
+  color: #faf4f4;
+  background-color: rgb(48, 45, 45);
+}
+
+</style>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css
+" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <h2 style="padding: 20px 0 0 0; font-family: sans-serif; ">Hold Registrations</h1>
+        <div class="header">
+            <div class="logo">
+                <img src="images/one.png" alt="">
+            </div>
+            <div class="navbar">
+                <a href="index.html">Registration </a>
+                <a href="">hold</a>
+                <a href="accept.html">Accepted </a>              
+                <a href="rejected.html">deleted</a>
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+        <div class="container">
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>city</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+            </tbody>
+        </table>
+
+        <script>
+            let favusers = JSON.parse(localStorage.getItem('favuserdata')) || [];
+
+            let hold = JSON.parse(localStorage.getItem('holduserdata')) || [];
+
+            let tbody = document.querySelector('.tbody')
+
+            function getdata(data) {
+                tbody.innerHTML = ''
+                let table = document.querySelector('.table')
+                data.forEach((item, i) => {
+                    let tr = document.createElement('tr');
+                    let td1 = document.createElement('td'); td1.innerText = i + 1
+                    let td2 = document.createElement('td'); td2.innerHTML = item.name;
+                    let td3 = document.createElement('td'); td3.innerHTML = item.email
+                    let td4 = document.createElement('td'); td4.innerHTML = item.phone
+                    let td5 = document.createElement('td'); td5.innerHTML = item.city
+                    let td6 = document.createElement('td'); td6.innerHTML = `ON HOLD`
+                    td6.style.color = 'darkgreen'
+                    td6.style.fontSize = '20px'
+                    let btn1 = document.createElement('button'); btn1.classList.add('btn'); btn1.innerText = 'Accept'
+                    let btn2 = document.createElement('button'); btn2.classList.add('btn-1'); btn2.innerText = 'delete'
+
+                    // / <------accept and remove data---------> 
+                    btn1.addEventListener('click', () => {
+                        let favusers = JSON.parse(localStorage.getItem('favuserdata')) || [];
+
+                        favusers.push(item)
+                        localStorage.setItem('favuserdata', JSON.stringify(favusers))
+                        alert('hi')
+                        remove()
+                        localStorage.setItem('holduserdata', JSON.stringify(hold))
+                        getdata(hold)
+                    })
+
+                    // / <------remove data---------> 
+                    btn2.addEventListener('click', (index) => {
+
+                        remove()
+                        localStorage.setItem('userdata', JSON.stringify(users))
+                        getdata(users)
+                        let deluser = JSON.parse(localStorage.getItem('deldata')) || [];
+                        deluser.push(item)
+                        localStorage.setItem('deldata', JSON.stringify(deluser))
+                    })
+
+
+
+
+
+                    btn2.addEventListener('click', (i) => {
+                        let deluser = JSON.parse(localStorage.getItem('deldata')) || [];
+
+                        remove()
+
+                        deluser.push(item)
+                        localStorage.setItem('deldata', JSON.stringify(deluser))
+
+                        localStorage.setItem('holduserdata', JSON.stringify(hold))
+                        getdata(hold)
+                    })
+
+                    let td7 = document.createElement('td'); td7.append(btn1, btn2)
+
+                    tr.append(td1, td2, td3, td4, td5, td6, td7)
+                    tbody.append(tr)
+                })
+                table.append(tbody)
+            }
+            getdata(hold)
+
+
+            // / <------remove fun---------> 
+            function remove(i) {
+                hold.splice(i, 1)
+            }
+
+
+
+
+
+
+        </script>
+        <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js
+"></script>
+
+        <script>
+
+        </script>
+    <script src="index.js"></script>
+
+
+
+</body>
+
+</html>

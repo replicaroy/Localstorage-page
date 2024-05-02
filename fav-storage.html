@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewLocalStorage</title>
+</head>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css
+" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+  <h2 style="padding: 20px 0 0 0; font-family: sans-serif; ">Accepted students</h1>
+    <div class="header">
+      <div class="logo">
+        <img src="images/one.png" alt="">
+      </div>
+      <div class="navbar">
+        <a href="/localstorage/newlocalstorage.html"> Registration</a>
+        <a href="/localstorage/hold.html">hold</a>
+        <a href="#">Accepted </a>
+        <a href="">finel</a>
+        <a href="">deleted</a>
+        <a href="">Login</a>
+      </div>
+    </div>
+    <!-- <form>
+      <input type="text" id="name" placeholder="UserName">
+      <input type="email" id="email" placeholder="Email">
+      <input type="number" id="phone" placeholder="Phone No.">
+      <input type="city" id="city" placeholder="City">
+      <input type="submit" value="Log In">
+    </form> -->
+    <div class="container">
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Course</th>
+          <!-- <th>Action</th -->
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+      </tbody>
+    </table>
+
+    <script>
+    //   let users = JSON.parse(localStorage.getItem('userdata')) || [];
+    let tbody = document.querySelector('.tbody')
+
+      let favusers = JSON.parse(localStorage.getItem('favuserdata')) || [];
+
+    //   let form = document.querySelector('form')
+    //   let tbody = document.querySelector('.tbody')
+    //   form.addEventListener('submit', (e) => {
+    //     e.preventDefault()
+    //     let name = document.getElementById('name').value
+    //     let email = document.getElementById('email').value
+    //     let phone = document.getElementById('phone').value
+    //     let city = document.getElementById('city').value
+    //     let obj = { name, email, phone, city }
+    //     if (obj.name == '' || obj.email == '' || obj.phone == '' || obj.city == '') {
+    //       alert('all fields required')
+    //     } else {
+    //       users.push(obj)
+    //       localStorage.setItem('userdata', JSON.stringify(users))
+    //       form.reset()
+    //       getdata(users)
+    //     }
+    //   })
+
+      function getdata(data) {
+        tbody.innerHTML = ''
+        let table = document.querySelector('.table')
+        data.forEach((item, i) => {
+          let tr = document.createElement('tr');
+          let td1 = document.createElement('td'); td1.innerText = i + 1
+          let td2 = document.createElement('td'); td2.innerHTML = item.name;
+          let td3 = document.createElement('td'); td3.innerHTML = item.email
+          let td4 = document.createElement('td'); td4.innerHTML = item.phone
+          let td5 = document.createElement('td'); td5.innerHTML = item.city
+          let td6 = document.createElement('td'); td6.innerHTML = `completed`
+        //   let btn1 = document.createElement('button');  btn1.innerText = 'Completed'
+        //   let btn2 = document.createElement('button'); btn2.classList.add('btn-1'); btn2.innerText = 'Reject'
+        //   let btn3 = document.createElement('button'); btn3.classList.add('btn-2'); btn3.innerText = 'Hold'
+        //   let td7 = document.createElement('td');  td7.append(btn1)
+
+          // / <------remove data---------> 
+        //   btn2.addEventListener('click', (index) => {
+        //     remove()
+        //     localStorage.setItem('userdata', JSON.stringify(users))
+        //     getdata(users)
+        //   })
+
+        //   // / <------send to fav---------> 
+        //   btn1.addEventListener('click', (i) => {
+
+        //     let favusers = JSON.parse(localStorage.getItem('favuserdata')) || [];
+        //     favusers.push(item)
+        //     localStorage.setItem('favuserdata', JSON.stringify(favusers))
+        //     setTimeout(() => {
+        //       Swal.fire({
+        //         title: "Data added to favourite",
+        //         showConfirmButton: false,
+        //         timer: 1500
+        //       });
+        //     }, 500);
+        //     remove()
+        //     getdata(users)
+        //   })
+
+          // / <------send to hold---------> 
+        //   btn3.addEventListener('click', function () {
+
+        //     let hold = JSON.parse(localStorage.getItem('holduserdata')) || [];
+        //     hold.push(item)
+        //     localStorage.setItem('holduserdata', JSON.stringify(hold))
+        //     setTimeout(() => {
+        //       Swal.fire({
+        //         title: "sent to hold",
+        //         showConfirmButton: false,
+        //         timer: 1500
+        //       });
+        //     }, 500);
+        //     remove(i)
+        //     getdata(users)
+        //     localStorage.setItem('userdata', JSON.stringify(users))})
+
+          tr.append(td1, td2, td3, td4, td5, td6)
+          tbody.append(tr)
+        })
+        table.append(tbody)
+      }
+      getdata(favusers)
+
+
+      // / <------remove fun---------> 
+      function remove(i) {
+        users.splice(i, 1)
+      }
+
+
+
+
+
+    </script>
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js
+"></script>
+
+
+</body>
+
+</html>

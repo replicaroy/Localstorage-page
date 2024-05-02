@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REgister</title>
+</head>
+<style>
+    *{
+        margin: 0; padding: 0; box-sizing: border-box; 
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        padding: 50px auto; 
+        display: flex; 
+        flex-direction: column;
+        text-align: center;
+    }
+    .emp_table{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+        place-items: center;
+        margin-top: 100px;
+        text-align: center;
+        gap: 50px;
+        box-direction: 1px solid;
+       
+    }
+    .userdetails{
+        position: relative;
+        width: 350px; padding: 20px; box-shadow: 0 0 10px gray; text-align: center;
+    }
+   .userdetails h2{
+        color: rgb(5, 70, 67);
+        padding-bottom: 10px;
+       
+   }
+   .userdetails p{ 
+        text-align: left;
+        padding-left: 20px;
+        margin-top: 10px;   
+        font-size: 17px;  
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   }
+   span{
+    position: absolute; top: 0;
+    right: 0;
+    padding: 10px 20px 0 0; 
+    font-weight: bolder;
+    color: rgb(20, 133, 135);  
+   }
+   form{  
+    display: flex;
+    flex-direction: column; 
+    padding: 20px;
+    margin: auto;
+    border-radius: 8px;
+    width: 500px;
+    background: linear-gradient(45deg, rgb(209, 124, 139), rgb(135, 197, 222));
+   }
+   label{
+    display: inline-block;
+    width: 80px;
+    color: rgb(17, 16, 16);
+   }
+   input{    
+    padding: 10px;
+   display: block;
+   width: 100%;
+    border: none;    
+   }
+   input:focus{
+    outline: none;
+   }
+   button{
+    display: block;
+    padding: 10px 50px; outline: none; background: teal; color: white;
+    margin: auto;
+    border: none;
+   }
+</style>
+<body>
+</style>     <div><button><a href="localstorage.html" style="color: white; text-decoration: none; font-weight: bolder;">Go-to-Home in Page</a></button> </div> <br> <br> 
+
+<div><button style="padding: 10px;"><a href="localstorage.html " style="color: white; text-decoration: none; font-weight: bolder;">SignUp Now</a></button> </div>
+<br> <br>
+
+        <form  >
+            <label for="">NAME</label>
+            <input type="text" name="name" placeholder="name"> <br> <br>
+            <label for="">EMAIL</label>
+            <input type="email" name="email" placeholder="email"> <br> <br>
+            <label for="">PHONE</label>
+            <input type="number" name="number" placeholder="number"> <br> <br>
+            <label for="">CITY</label>
+            <input type="text" name="city" placeholder="city"> <br> <br>        
+            <button>SignUp Now</button>
+        </form>       
+   
+        <div class="emp_table">
+    
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- // function remove(i){
+//     arr.splice(i,1)
+//     localStorage.setItem('data',JSON.stringify(arr))  
+//     getData(arr)
+// } -->
